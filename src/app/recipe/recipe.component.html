@@ -1,0 +1,59 @@
+<div class="recipe">
+    <div class="img-container" *ngIf="showInfo">
+        <button (click)="changeCurImage(false)"><< prev</button>
+        <button (click)="changeCurImage(true)">next >></button>
+        <div>
+            <img [src]="curImage">
+        </div>
+    </div>
+
+
+<div class="row">
+    <div class="col m6 s6 offset-m3 center-align">
+        <h3>Recipe #{{ recipe.recipeNumber }}</h3>
+    </div>
+    <div class="col m3 s6 center-align">
+        <a class="btn-floating waves-effect waves-light blue"
+        (click)="showInfo=!showInfo">
+        <i *ngIf="showInfo" class="material-icons">
+            keyboard arrow up
+        </i>
+        <i *ngIf="!showInfo" class="material-icons">
+            keyboard arrow down
+        </i>
+    </a>
+    <a [routerLink] = "'/medicines/'+recipe.recipeNumber"
+    class="btn-floating waves-effect waves-light blue-grey">
+    <i class="material-icons">
+        view_headline
+    </i>
+</a>
+    </div>
+</div>
+
+<div class="row info" *ngIf="showInfo">
+    <div class="col m6 offset-m3 s12">
+        <div class="input-field">
+            <input id="doctor" [(ngModel)]="recipe.doctor"
+            type="text" class="validate"
+            (ngModelChange)="onChangeDoctor()">
+            <label for="doctor" class="active">Doctor</label>
+        </div>
+        <div class="input-field">
+            <input id="patient" [(ngModel)]="recipe.patient"
+            type="text" class="validate">
+            <label for="patient" class="active">Patient</label>
+        </div>
+        <div class="input-field">
+            <input id="quantity" [(ngModel)]="recipe.medicineQuantity"
+            type="text" class="validate">
+            <label for="quantity" class="active">Medicine Quantity</label>
+        </div>
+        <a class="rem-row btn-floating waves-effect waves-light red" (click)="delRecipe()">
+            <i class="material-icons">delete</i>
+        </a>
+    </div>
+</div>
+
+    
+</div>

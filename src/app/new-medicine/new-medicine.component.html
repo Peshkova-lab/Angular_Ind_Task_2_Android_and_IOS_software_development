@@ -1,0 +1,42 @@
+<div class="row">
+    <div lcass="col m6 offset-m3 s12" *ngIf="!showForm">
+        <a (click)="showForm=true"
+        class="btn-floating btn-large waves-effect waves-light green">
+    <i class="material-icons">add</i>
+    </a>
+    </div>
+
+    <div class="col m6 offset-m3 s12 my-form" *ngIf="showForm">
+        <form #myForm="ngForm" novalidate
+        (ngSubmit)="onSubmit(myForm)">
+    <h5>New medicine</h5>
+    
+    <div class="input-field">
+        <input id="name" name="name" ngModel required type="text">
+        <label for="name">Name of Medicine</label>
+    </div>
+    
+    <div class="input-field">
+        <input id="medicineType" name="medicineType" ngModel required type="text">
+        <label for="medicineType">Medicine Type</label>
+    </div>
+    
+    <div class="input-field">
+        <input id="recipeNumb" name="recipeNumb" ngModel required type="number">
+        <label for="recipeNumb">recipeNumb</label>
+    </div>
+
+    <div class="input-field">
+        <button type="button" (click)="showForm=false"
+        class="rem-row btn-floating waves-effect waves-light left blue-grey">
+    <i class="material-icons">keyboard_arrow_up</i>
+    </button>
+
+    <button type="submit" [disabled]="myForm.invalid" 
+    class="rem-row btn-floating waves-effect waves-light green right">
+    <i class="material-icons">done</i>
+</button>
+    </div>
+    </form>
+    </div>
+</div>

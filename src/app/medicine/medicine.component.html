@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col m3 s6 center-align">
+        <h5>{{ medicine.name }}</h5>
+        <a class="btn-floating waves-effect waves-light blue"
+        (click)="showInfo=!showInfo">
+        <i *ngIf="showInfo" class="material-icons">
+            keyboard arrow up
+        </i>
+        <i *ngIf="!showInfo" class="material-icons">
+            keyboard arrow down
+        </i>
+    </a>
+    </div>
+</div>
+
+<div class="row info" *ngIf="showInfo">
+    <div class="col m6 offset-m3 s12">
+        <div class="input-field">
+            <input id="name" [(ngModel)]="medicine.name"
+            type="text" class="validate">
+            <label for="name" class="active">Name</label>
+        </div>
+        <div class="input-field">
+            <input id="medicineType" [(ngModel)]="medicine.medicineType"
+            type="text" class="validate">
+            <label for="medicineType" class="active">Medicine Type</label>
+        </div>
+        <a class="rem-row btn-floating waves-effect waves-light red" (click)="delMedicine()">
+            <i class="material-icons">delete</i>
+        </a>
+    </div>
+</div>

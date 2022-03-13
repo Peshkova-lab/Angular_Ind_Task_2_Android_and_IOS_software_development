@@ -1,0 +1,15 @@
+<nav>
+    <div class="nav-wrapper">
+        <a class="brand-logo">Recipes</a>
+    </div>
+</nav>
+
+<div class="container">
+    <p>last data change:
+        <span>{{lastChangeDate|date:'dd.MM.yyyy HH:mm:ss'}}</span>
+    </p>
+</div>
+
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
